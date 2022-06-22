@@ -1,0 +1,38 @@
+name: Preview Page Publish
+
+on:
+  push:
+    branches: [preview]
+  pull_request:
+    branches: [preview]
+
+jobs:
+  publish:
+    name: Build And Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install
+
+      - name: Build
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: build:preview
+
+      - name: Publish
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: preview
+          folder: dist
+          target-folder: docs

@@ -1,0 +1,29 @@
+.statistic {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--el-text-color-regular);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: 'tnum';
+}
+
+.statistic-title {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.statistic-content {
+  font-size: 24px;
+}
+
+.statistic-content-value {
+  display: inline-block;
+  direction: ltr;
+}
+
+.statistic-content-suffix {
+  margin-left: 4px;
+}
